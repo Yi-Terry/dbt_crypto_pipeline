@@ -1,0 +1,28 @@
+# Secrets / credentials
+.env
+*.env
+!*.env.example
+keys/
+*.p8
+*.pem
+*.key
+
+# dbt
+target/
+dbt_packages/
+logs/
+.user.yml
+
+# Airflow
+airflow/logs/
+airflow/dags/__pycache__/
+airflow/.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# macOS
+.DS_Store

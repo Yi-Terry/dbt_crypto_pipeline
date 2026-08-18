@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: fct_crypto_daily_snapshot
+    description: One row per coin per day (UTC), latest snapshot if loaded more than once that day.
+    columns:
+      - name: coin_id_snapshot_date
+        tests:
+          - unique
+          - not_null

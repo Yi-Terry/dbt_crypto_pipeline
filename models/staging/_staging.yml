@@ -1,0 +1,21 @@
+version: 2
+sources:
+  - name: raw
+    database: CRYPTO_DB
+    schema: RAW
+    tables:
+      - name: coingecko_markets
+
+models:
+  - name: stg_coingecko__markets
+    description: Cleaned, renamed pass over raw CoinGecko Market Snapshots.
+    columns:
+      - name: coin_id
+        tests:
+          - not_null
+      - name: loaded_at
+        tests:
+          - not_null
+      - name: current_price_usd
+        tests:
+          - not_null
