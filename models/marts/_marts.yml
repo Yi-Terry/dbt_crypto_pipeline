@@ -8,3 +8,26 @@ models:
         tests:
           - unique
           - not_null
+  - name: dim_coins
+    description: One row per coin with slowly changing attributes
+    columns:
+      - name: coin_id
+        tests:
+          - unique
+          - not_null
+      - name: loaded_at
+        tests:
+          - not_null
+  - name: market_movers
+    description: Ranking coins by price_change_pct_24h
+    columns:
+      - name: coin_id
+        tests:
+          - unique
+          - not_null
+      - name: loaded_at 
+        tests:
+          - not_null
+      - name: price_change_pct_24h
+        tests:
+          - not_null

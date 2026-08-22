@@ -45,7 +45,7 @@ def load_all_coins() -> pd.DataFrame:
     conn = get_connection()
     try:
         query = """
-            select coin_id, coin_name, coin_symbol, current_price_usd, price_change_pct_24h
+            select coin_id, coin_name, coin_symbol, coin_image_url, current_price_usd, price_change_pct_24h
             from fct_crypto_daily_snapshot
             where snapshot_date = (select max(snapshot_date) from fct_crypto_daily_snapshot)
             order by market_cap_rank asc
@@ -76,6 +76,8 @@ def load_price_history(coin_id: str, hours: int = 48) -> pd.DataFrame:
 
 
 def render_coin_metric(container, row) -> None:
+    if row.get("COIN_IMAGE_URL"):
+        container.image(row["COIN_IMAGE_URL"], width=32)
     container.metric(
         label=f"{row['COIN_NAME']} ({row['COIN_SYMBOL'].upper()})",
         value=f"${row['CURRENT_PRICE_USD']:,.2f}",

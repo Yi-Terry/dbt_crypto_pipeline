@@ -2,7 +2,8 @@
     config(
         materialized='incremental',
         unique_key='coin_id_snapshot_date',
-        incremental_strategy='merge'
+        incremental_strategy='merge',
+        on_schema_change='append_new_columns'
 
     )
 }}
@@ -29,6 +30,7 @@ select
     coin_id,
     coin_symbol,
     coin_name,
+    coin_image_url,
     snapshot_date,
     current_price_usd,
     market_cap_usd,
