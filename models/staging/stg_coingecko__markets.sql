@@ -7,6 +7,7 @@ renamed as (
             id                as coin_id,
             symbol            as coin_symbol,
             name              as coin_name,
+            image             as coin_image_url,
             current_price     as current_price_usd,
             market_cap        as market_cap_usd,
             market_cap_rank   as market_cap_rank,

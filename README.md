@@ -107,3 +107,8 @@ The `crypto_pipeline` DAG runs hourly and executes ingestion followed by `dbt ru
 |---|---|---|
 | `stg_coingecko__markets` | view | Renamed pass-through over the raw CoinGecko snapshot |
 | `fct_crypto_daily_snapshot` | incremental table | One deduped row per coin per UTC day, merged on `coin_id_snapshot_date` |
+
+
+## TODO:
+- Add different layers of Analytics for Coin Data
+- Imgration to Postgres or DuckDB(If snowflake cost is too expensive)
